@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm">
 
@@ -14,6 +14,19 @@
             <div>{{burger_name}}</div>
             {{/if}}
             {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm ">
+
+            <div class="mb-2">Make the burger</div>
+
+            <form id="burgerName">
+                <label>Burger Name
+                    <input id="name" type="text">
+                </label>
+                <button>Submit</button>
+            </form>
         </div>
     </div>
 </div>

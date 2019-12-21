@@ -11,3 +11,15 @@ $(".devoure").click(function (){
         location.reload()
     })
 })
+$("#burgerName").submit((e)=>{
+    e.preventDefault()
+    const name = $("#name").val()
+    console.log(name)
+    $.post("/api/burger", {name:name})
+    .then((results)=>{
+        console.log(results)
+        location.reload()
+    })
+
+
+})

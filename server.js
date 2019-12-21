@@ -41,7 +41,16 @@ app.put("/api/burger", (req, res)=>{
         res.sendStatus(200)
     })
 })
+app.post("/api/burger", (req, res)=>{
+  const name = req.body.name
+  console.log(name)
+  var querString= `INSERT INTO burgers (burger_name, devoured) VALUES (?,?)`
 
+  connection.query(querString,[name, 0], (results)=>{
+    console.log(results)
+        res.sendStatus(200)
+  })
+})
 
 // Make connection.
 connection.connect(function(err) {
