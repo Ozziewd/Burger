@@ -14,6 +14,27 @@ var connection = mysql.createConnection({
   password: "rootroot",
   database: "burger_db"
 });
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'rootroot',
+    database: 'burger_db'
+  });
+};
+
+// Make connection.
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
 app.use(express.static("public"));
 
 // Parse application body as JSON
@@ -52,14 +73,7 @@ app.post("/api/burger", (req, res)=>{
   })
 })
 
-// Make connection.
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-});
+
 app.listen(PORT, function() {
     // Log (server-side) when our server has started
     console.log("Server listening on: http://localhost:" + PORT);
