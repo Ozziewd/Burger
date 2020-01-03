@@ -1,7 +1,14 @@
 <div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <h1 class="text-center">Eat All Burger</h1>
+        </div>
+        <div class="mb-3 row d-flex justify-content-center">
+        <img src="/assets/img/burgers.png" alt="burgers" height="200px">
+        </div>
+</div>
     <div class="row">
         <div class="col-sm">
-
+            
             {{#each food}}
             {{#unless devoured}}
             <div>{{burger_name}}<button value={{id}} class="devoure ml-3">eat da burger</button></div>
